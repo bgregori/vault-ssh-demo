@@ -46,11 +46,11 @@ components:
     sourceNamespace: openshift-marketplace
     installPlanApproval: Automatic
 
-  # --- Vault Helm Install
+  # --- Vault 
   vault:
     enabled: true
     appName: vault
-    repoURL: https://helm.releases.hashicorp.com
+    repoUrl: https://helm.releases.hashicorp.com
     namespace: vault
 
 
