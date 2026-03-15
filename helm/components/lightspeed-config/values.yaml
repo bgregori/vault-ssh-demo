@@ -1,0 +1,16 @@
+# Demo application settings
+demo:
+  enabled: true
+  namespace: openshift-lightspeed
+  credentialsSecret: maas-credentials
+  providerName: maas
+  modelType: openai
+
+# Injected by parent chart
+deployer:
+  domain: ""
+
+litemaas:
+  apiUrl: ""
+  apiKey: ""
+  model: ""

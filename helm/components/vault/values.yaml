@@ -1,0 +1,9 @@
+# Demo application settings
+demo:
+  enabled: true
+  namespace: vault
+
+# Injected by parent chart
+deployer:
+  domain: ""
+

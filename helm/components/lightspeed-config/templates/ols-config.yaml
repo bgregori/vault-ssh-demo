@@ -1,0 +1,21 @@
+{{- if .Values.demo.enabled }}
+---
+apiVersion: ols.openshift.io/v1alpha1
+kind: OLSConfig
+metadata:
+  name: cluster
+spec:
+  llm:
+    providers:
+      - name: {{ .Values.demo.providerName }}
+        type: {{ .Values.demo.modelType }}
+        credentialsSecretRef:
+          name: {{ .Values.demo.credentialsSecret }}
+        url: {{ .Values.litemaas.apiUrl }}
+        models:
+          - name: {{ .Values.litemaas.model }}
+  ols:
+    hideIcon: true 
+    defaultModel: {{ .Values.litemaas.model }}
+    defaultProvider: {{ .Values.demo.providerName }}
+{{- end }}
