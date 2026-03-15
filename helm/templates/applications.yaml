@@ -141,7 +141,7 @@ spec:
   source:
     repoURL: {{ .Values.components.vault.repoUrl }}
     targetRevision: {{ .Values.gitops.revision }}
-    path: vault
+    path: 
     helm:
       valuesObject:
         global:
