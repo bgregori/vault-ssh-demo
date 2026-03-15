@@ -139,7 +139,7 @@ metadata:
 spec:
   project: {{ .Values.argocd.project }}
   source:
-    repoURL: {{ .Values.components.vault.repoUrl }}
+    chart: {{ .Values.components.vault.repoUrl }}
     targetRevision: {{ .Values.gitops.revision }}
     path: 
     helm:
