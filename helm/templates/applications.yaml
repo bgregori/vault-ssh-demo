@@ -140,7 +140,7 @@ spec:
   project: {{ .Values.argocd.project }}
   source:
     chart: {{ .Values.components.vault.repoUrl }}
-    targetRevision: {{ .Values.gitops.revision }}
+    targetRevision: 0.32.0
     path: 
     helm:
       valuesObject:
