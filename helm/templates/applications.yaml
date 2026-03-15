@@ -139,6 +139,7 @@ metadata:
 spec:
   project: {{ .Values.argocd.project }}
   source:
+    repoUrl: {{ .Values.components.vault.repoUrl }}
     chart: {{ .Values.components.vault.chart }}
     targetRevision: 0.32.0
     path: 
