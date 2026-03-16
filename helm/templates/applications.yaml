@@ -6,7 +6,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Release.Name }}-operator
+  name: webterminal-operator
   namespace: {{ .Values.argocd.namespace }}
   labels:
     demo.redhat.com/application: "field-content"
@@ -44,7 +44,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Release.Name }}-operator
+  name: vault-operator
   namespace: {{ .Values.argocd.namespace }}
   labels:
     demo.redhat.com/application: "field-content"
