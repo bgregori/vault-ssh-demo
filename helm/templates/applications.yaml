@@ -21,16 +21,16 @@ spec:
     helm:
       valuesObject:
         operator:
-          enabled: {{ .Values.components.operator.enabled }}
-          name: {{ .Values.components.operator.name }}
-          namespace: {{ .Values.components.operator.namespace }}
-          channel: {{ .Values.components.operator.channel }}
-          source: {{ .Values.components.operator.source }}
-          sourceNamespace: {{ .Values.components.operator.sourceNamespace }}
-          installPlanApproval: {{ .Values.components.operator.installPlanApproval }}
+          enabled: {{ .Values.components.webTerminalOperator.enabled }}
+          name: {{ .Values.components.webTerminalOperator.name }}
+          namespace: {{ .Values.components.webTerminalOperator.namespace }}
+          channel: {{ .Values.components.webTerminalOperator.channel }}
+          source: {{ .Values.components.webTerminalOperator.source }}
+          sourceNamespace: {{ .Values.components.webTerminalOperator.sourceNamespace }}
+          installPlanApproval: {{ .Values.components.webTerminalOperator.installPlanApproval }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .Values.components.operator.namespace }}
+    namespace: {{ .Values.components.webTerminalOperator.namespace }}
   syncPolicy:
     automated:
       prune: true
@@ -59,16 +59,16 @@ spec:
     helm:
       valuesObject:
         operator:
-          enabled: {{ .Values.components.operator.enabled }}
-          name: {{ .Values.components.operator.name }}
-          namespace: {{ .Values.components.operator.namespace }}
-          channel: {{ .Values.components.operator.channel }}
-          source: {{ .Values.components.operator.source }}
-          sourceNamespace: {{ .Values.components.operator.sourceNamespace }}
-          installPlanApproval: {{ .Values.components.operator.installPlanApproval }}
+          enabled: {{ .Values.components.vaultSecretsOperator.enabled }}
+          name: {{ .Values.components.vaultSecretsOperator.name }}
+          namespace: {{ .Values.components.vaultSecretsOperator.namespace }}
+          channel: {{ .Values.components.vaultSecretsOperator.channel }}
+          source: {{ .Values.components.vaultSecretsOperator.source }}
+          sourceNamespace: {{ .Values.components.vaultSecretsOperator.sourceNamespace }}
+          installPlanApproval: {{ .Values.components.vaultSecretsOperator.installPlanApproval }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .Values.components.operator.namespace }}
+    namespace: {{ .Values.components.vaultSecretsOperator.namespace }}
   syncPolicy:
     automated:
       prune: true
