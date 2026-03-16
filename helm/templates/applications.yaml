@@ -121,7 +121,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Release.Name }}-vault
+  name: vault
   namespace: {{ .Values.argocd.namespace }}
   labels:
     demo.redhat.com/application: "field-content"
@@ -153,6 +153,8 @@ spec:
             tag: "1.21.2-ubi"
           readinessProbe:
             path: "/v1/sys/health?uninitcode=204"
+          authDelegator:
+            enabled: true
         csi:
           image:
             repository: "registry.connect.redhat.com/hashicorp/vault-csi-provider"
