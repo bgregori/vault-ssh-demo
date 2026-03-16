@@ -147,9 +147,29 @@ spec:
       valuesObject:
         global:
           openshift: true
+        injector:
+          image:
+            repository: "registry.connect.redhat.com/hashicorp/vault-k8s"
+            tag: "1.7.2-ubi"
+          agentImage:
+            repository: "registry.connect.redhat.com/hashicorp/vault"
+            tag: "1.21.2-ubi"
         server:
           dev:
-            enabled: true        
+            enabled: true
+          image:
+            repository: "registry.connect.redhat.com/hashicorp/vault"
+            tag: "1.21.2-ubi"
+          readinessProbe:
+            path: "/v1/sys/health?uninitcode=204
+        csi:
+          image:
+            repository: "registry.connect.redhat.com/hashicorp/vault-csi-provider"
+            tag: "1.7.0-ubi"
+          agent:
+            image:
+              repository: "registry.connect.redhat.com/hashicorp/vault"
+              tag: "1.21.2-ubi"               
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.components.vault.namespace }}
