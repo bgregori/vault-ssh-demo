@@ -26,7 +26,7 @@ components:
     namespace: openshift-lightspeed
 
   # --- Operator Installation ---
-  operator:
+  webTerminalOperator:
     # Set to true to install the operator via OLM
     # Set to false if operator is already installed on cluster
     enabled: true
@@ -37,7 +37,7 @@ components:
     sourceNamespace: openshift-marketplace
     installPlanApproval: Automatic
 
-  operator:
+  vaultSecretsOperator:
     enabled: true
     name: vault-secrets-operator
     namespace: openshift-operators
