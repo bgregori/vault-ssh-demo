@@ -166,6 +166,13 @@ spec:
             enabled: true
             tls:
               termination: passthrough
+          postStart:
+            - /bin/sh
+            - -c
+            - |
+              sleep 10
+              vault auth enable kubernetes
+              vault write auth/kubernetes/config kubernetes_host="{{ .Values.deployer.apiUrl }}"
         ui:
           enabled: true
         csi:
