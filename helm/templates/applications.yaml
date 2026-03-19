@@ -168,15 +168,6 @@ spec:
             enabled: true
             tls:
               termination: passthrough
-          postStart:
-            - /bin/sh
-            - -c
-            - |
-              sleep 30
-              vault write sys/policy/dev policy='path "ssh-client-signer/sign/dev" { capabilities = ["update"] }'
-              vault auth enable github
-              vault write auth/github/config organization=NAPS-DNS-Demo-Org
-              vault write auth/github/map/teams/ssh-user value=dev,default
         ui:
           enabled: true
         csi:
