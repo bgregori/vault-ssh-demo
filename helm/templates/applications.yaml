@@ -152,7 +152,9 @@ spec:
             tag: "1.21.2-ubi"
         server:
           dev:
-            enabled: true
+            enabled: false
+          ha:
+            enabled: false
           image:
             repository: "registry.connect.redhat.com/hashicorp/vault"
             tag: "1.21.2-ubi"
@@ -170,9 +172,11 @@ spec:
             - /bin/sh
             - -c
             - |
-              sleep 10
-              vault auth enable kubernetes
-              vault write auth/kubernetes/config kubernetes_host="{{ .Values.deployer.apiUrl }}"
+              sleep 30
+              vault write sys/policy/dev policy='path "ssh-client-signer/sign/dev" { capabilities = ["update"] }'
+              vault auth enable github
+              vault write auth/github/config organization=NAPS-DNS-Demo-Org
+              vault write auth/github/map/teams/ssh-user value=dev,default
         ui:
           enabled: true
         csi:
